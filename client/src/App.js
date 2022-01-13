@@ -1,13 +1,14 @@
-import React from "react";
-import "./App.css";
-import ProductForm from "./components/ProductForm";
+import React, { useState } from "react";
+import { Router } from "@reach/router";
+import Main from "./views/Main";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <ProductForm />
+    <div>
+      <Router>
+        <Main path="/home" />
+      </Router>
     </div>
   );
-}
-
+};
 export default App;
