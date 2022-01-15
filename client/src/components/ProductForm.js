@@ -28,7 +28,11 @@ const ProductForm = () => {
       <p>
         <label>Product Name:</label>
         <br />
-        <input type="text" onChange={(e) => setProductName(e.target.value)} />
+        <input
+          className="border border-blue-400 rounded"
+          type="text"
+          onChange={(e) => setProductName(e.target.value)}
+        />
       </p>
       <p>
         <label>Price:</label>
