@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
+import { Link } from "@reach/router";
+
 const ProductList = (props) => {
-  const { product, setProduct } = props;
+  const { products, setProducts } = props;
 
   useEffect(() => {
     axios
       .get("http://localhost:8000/api/products")
       .then((res) => {
         console.log(res.data);
-        setProduct(res.data);
+        setProducts(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -17,11 +19,22 @@ const ProductList = (props) => {
 
   return (
     <div>
-      {product.map((product, index) => {
+      {products.map((products, index) => {
         return (
-          <p key={index}>
-            {product.productName}, ${product.price}, {product.description}
-          </p>
+          <div
+            key={index}
+            className="odd:bg-white even:bg-slate-100 last:rounded-b-xl"
+          >
+            <p>
+              {products.productName}, ${products.price}, {products.description}
+            </p>
+            <Link
+              className="underline text-blue-600"
+              to={`/product/${products._id}`}
+            >
+              {products.productName} Page
+            </Link>
+          </div>
         );
       })}
     </div>

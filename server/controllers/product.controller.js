@@ -23,3 +23,15 @@ module.exports.getAllProducts = (request, response) => {
       console.log(err);
     });
 };
+
+module.exports.getOneProduct = (req, res) => {
+  Product.find({ _id: req.params.id })
+    .then((product) => res.json(product))
+    .catch((err) => res.json(err));
+};
+
+module.exports.deleteOneProduct = (req, res) => {
+  Product.deleteOne({ _id: req.params.id })
+    .then((deleteConfirm) => res.json(deleteConfirm))
+    .catch((err) => res.json(err));
+};
