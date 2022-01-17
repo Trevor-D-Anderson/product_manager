@@ -35,3 +35,11 @@ module.exports.deleteOneProduct = (req, res) => {
     .then((deleteConfirm) => res.json(deleteConfirm))
     .catch((err) => res.json(err));
 };
+
+module.exports.updateOneProduct = (request, response) => {
+  Product.findOneAndUpdate({ _id: request.params.id }, request.body, {
+    new: true,
+  })
+    .then((updatedProduct) => response.json(updatedProduct))
+    .catch((err) => response.json(err));
+};

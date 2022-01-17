@@ -34,10 +34,23 @@ const ViewProduct = (props) => {
       <p className="font-bold mt-2">Product: {product.productName}</p>
       <p className="font-bold mt-2">Price: ${product.price}</p>
       <p className="font-bold mt-2">Description: {product.description}</p>
-      <button onClick={() => deleteProduct(product._id)}>Delete</button>
-      <Link className="underline text-blue-600 pb-4" to="/home">
-        Home
-      </Link>
+      <div className="flex flex-row pb-4 justify-center ">
+        <button
+          className="underline text-blue-600 pr-2"
+          onClick={() => deleteProduct(product._id)}
+        >
+          Delete
+        </button>
+        <Link className="underline text-blue-600 pr-2" to="/home">
+          Home
+        </Link>
+        <Link
+          className="underline text-blue-600 pr-2"
+          to={"/product/edit/" + product._id}
+        >
+          Edit {product.productName}
+        </Link>
+      </div>
     </div>
   );
 };

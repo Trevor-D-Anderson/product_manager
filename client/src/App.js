@@ -3,6 +3,7 @@ import { Redirect, Router } from "@reach/router";
 import "./App.css";
 import Main from "./views/Main";
 import ViewProduct from "./components/ViewProduct";
+import Update from "./components/Update";
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
         <Redirect from="/" to="/home" />
         <Main path="/home" />
         <ViewProduct path="/product/:id" />
+        <Update path="/product/edit/:id" />
       </Router>
     </div>
   );
