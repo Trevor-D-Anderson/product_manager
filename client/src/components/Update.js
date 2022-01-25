@@ -15,6 +15,9 @@ const Update = (props) => {
       .then((res) => {
         console.log(res.data);
         setProduct(res.data[0]);
+        setProductName(res.data[0].productName);
+        setPrice(res.data[0].price);
+        setDescription(res.data[0].description);
       })
       .catch((err) => console.log(err));
   }, []);

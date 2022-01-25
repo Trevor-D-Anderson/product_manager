@@ -19,11 +19,11 @@ const ProductForm = (props) => {
         console.log(res);
         console.log(res.data);
         setProducts([...products, res.data]);
+        setProductName("");
+        setPrice("");
+        setDescription("");
       })
       .catch((err) => console.log(err));
-    setProductName("");
-    setPrice("");
-    setDescription("");
   };
   return (
     <form className="flex flex-col pl-6 pr-6" onSubmit={onSubmitHandler}>
@@ -32,6 +32,7 @@ const ProductForm = (props) => {
         <br />
         <input
           className="border border-blue-400 rounded"
+          value={productName}
           type="text"
           onChange={(e) => setProductName(e.target.value)}
         />
@@ -41,6 +42,7 @@ const ProductForm = (props) => {
         <br />
         <input
           className="border border-blue-400 rounded"
+          value={price}
           type="text"
           onChange={(e) => setPrice(e.target.value)}
         />
@@ -50,6 +52,7 @@ const ProductForm = (props) => {
         <br />
         <input
           className="border border-blue-400 rounded"
+          value={description}
           type="text"
           onChange={(e) => setDescription(e.target.value)}
         />

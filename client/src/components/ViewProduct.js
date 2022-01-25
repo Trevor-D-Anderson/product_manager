@@ -31,7 +31,9 @@ const ViewProduct = (props) => {
 
   return (
     <div className="flex w-96 flex-col text-center border-2 rounded-xl mt-2 border-green-200">
-      <p className="font-bold mt-2">Product: {product.productName}</p>
+      <p className="mt-2 text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-green-300 to-blue-500">
+        {product.productName}
+      </p>
       <p className="font-bold mt-2">Price: ${product.price}</p>
       <p className="font-bold mt-2">Description: {product.description}</p>
       <div className="flex flex-row pb-4 justify-center ">
